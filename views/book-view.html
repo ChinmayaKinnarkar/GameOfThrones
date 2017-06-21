@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 center-block">
+      <h2 class="h2style well"><i class="fa fa-book" aria-hidden="true"></i> Book Details</h2>
+      <br>
+      <div class="appSection  center-block text-center">
+        <div class="allDataTable table-responsive text-center">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group btn-block">
+                  <a class="btn btn-lg btn-primary btn-block" ng-href="#/"><span class="glyphicon glyphicon-home">  </span>Homepage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th colspan="2" class="text-center">
+                  <span ng-show="currentBook.book.name.length > 0">{{currentBook.book.name}} </span>
+                  <span ng-show="currentBook.book.name.length < 1 ">"Not Available"</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Book ISBN
+                </td>
+                <td>
+                  <span ng-show="currentBook.book.isbn.length > 0">{{currentBook.book.isbn}}</span>
+                  <span ng-show="currentBook.book.isbn.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  No. Of Pages
+                </td>
+                <td>
+                  <span ng-show="currentBook.book.numberOfPages">{{currentBook.book.numberOfPages}}</span>
+                  <span ng-show !="currentBook.book.numberOfPages ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Authors
+                </td>
+                <td>
+                  <span ng-repeat="author in currentBook.book.authors">#{{$index +1}}.{{author}} <br> <br></span>
+                  <span ng-show="currentBook.book.authors.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Publisher
+                </td>
+                <td>
+                  <span ng-show="currentBook.book.publisher.length > 0">{{currentBook.book.publisher}}</span>
+                  <span ng-show="currentBook.book.publisher.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Country
+                </td>
+                <td>
+                  <span ng-show="currentBook.book.country.length > 0">{{currentBook.book.country}}</span>
+                  <span ng-show="currentBook.book.country.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Released
+                </td>
+                <td>
+                  <span ng-show="currentBook.book.released.length > 0">{{currentBook.book.released | date : "fullDate"}}</span>
+                  <span ng-show="currentBook.book.released.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Characters
+                </td>
+                <td>
+                  <span ng-repeat="character in currentBook.book.characters">#{{$index +1}}.<a ng-href="{{character.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+          {{character.replace('https://anapioficeandfire.com/api/characters','api/view-character')}}</a><br> <br> </span>
+                  <span ng-show="currentBook.book.characters.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  POV Characters
+                </td>
+                <td>
+                  <span ng-repeat="povcharacter in currentBook.book.povCharacters">#{{$index +1}}.<a ng-href="{{povcharacter.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+          {{povcharacter.replace('https://anapioficeandfire.com/api/characters','api/view-character')}}</a><br> <br> </span>
+                  <span ng-show="currentBook.book.characters.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+        
+        <div>
+        
+        </div>
+    
+      </div>
+    </div>

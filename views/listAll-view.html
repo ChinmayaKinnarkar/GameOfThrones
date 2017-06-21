@@ -1,0 +1,33 @@
+<section class="mainSection">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <div class="container-fluid buttonSection">
+          <div class="row">
+            <div class="col-md-4">
+              <a class="btn btn-lg btn-primary btn-block" ng-click="listAll.ShowHideBooks()"><span class="glyphicon glyphicon-book"></span>Books</a>
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-lg btn-danger btn-block" ng-click="listAll.ShowHideHouses()"><span class="glyphicon glyphicon-home">  </span>Houses</a>
+            </div>
+            <div class="col-md-4">
+              <a class="btn btn-lg btn-success btn-block" ng-click="listAll.ShowHideCharacters()"><span class="glyphicon glyphicon-user">  </span>     Characters</a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="books magicBox" ng-show="listAll.booksVisible">
+          <books-data></books-data>
+        </div>
+        <div class="houses magicBox" ng-show="listAll.housesVisible">
+          <houses-data></houses-data>
+        </div>
+        <div class="characters magicBox" ng-show="listAll.charactersVisible">
+          <characters-data></characters-data>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

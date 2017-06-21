@@ -1,0 +1,166 @@
+<section class="appSection">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="h2style well"><i class="fa fa-user" aria-hidden="true"></i> Character Details</h2>
+        <br>
+        <div class="allDataTable table-responsive text-center">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group btn-block">
+                  <a class="btn btn-lg btn-primary btn-block" ng-href="#/"><span class="glyphicon glyphicon-home">  </span>Homepage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <table class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th colspan="2" class="text-center">
+                  <span ng-show="currentCharacter.character.name.length > 0">Character Name:{{currentCharacter.character.name}} </span>
+                  <span ng-show="currentCharacter.character.name.length < 1 ">Character Name: "Not Available"</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Gender
+                </td>
+                <td>
+                  <span ng-show="currentCharacter.character.gender.length > 0">{{currentCharacter.character.gender}}</span>
+                  <span ng-show="currentCharacter.character.gender.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Culture
+                </td>
+                <td>
+                  <span ng-show="currentCharacter.character.culture.length > 0 ">{{currentCharacter.character.culture}}</span>
+                  <span ng-show="currentCharacter.character.culture.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Title
+                </td>
+                <td>
+                  <span ng-repeat="title in currentCharacter.character.titles">#{{$index +1}}.{{title}} <br> <br></span>
+                  <span ng-show="currentCharacter.character.titles.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Alias
+                </td>
+                <td>
+                  <span ng-repeat="alias in currentCharacter.character.aliases">#{{$index +1}}.{{alias}} <br> <br></span>
+                  <span ng-show="currentCharacter.character.aliases.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Father
+                </td>
+                <td>
+                  <span ng-show="currentCharacter.character.father.length > 0 "><a ng-href="{{currentCharacter.character.father.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+           {{currentCharacter.character.father.replace('https://anapioficeandfire.com/api/characters','api/view-father')}}</a></span>
+                  <span ng-show="currentCharacter.character.father.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Mother
+                </td>
+                <td>
+                  <span ng-show="currentCharacter.character.mother.length > 0 ">  <a ng-href="{{currentCharacter.character.mother.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+        {{currentCharacter.character.mother.replace('https://anapioficeandfire.com/api/characters','api/view-mother')}}</a></span>
+                  <span ng-show="currentCharacter.character.mother.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Spouse
+                </td>
+                <td>
+                  <span ng-show="currentCharacter.character.spouse.length > 0 "> <a ng-href="{{currentCharacter.character.spouse.replace('https://anapioficeandfire.com/api/characters','#/view-character')}}" title="View Details">
+        {{currentCharacter.character.spouse.replace('https://anapioficeandfire.com/api/characters','api/view-spouse')}}</a></span>
+                  <span ng-show="currentCharacter.character.spouse.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Allegiances
+                </td>
+                <td>
+                  <span ng-repeat="allegiance in currentCharacter.character.allegiances">#{{$index +1}}.<a ng-href="{{allegiance.replace('https://anapioficeandfire.com/api/houses','#/view-house')}}" title="View Details">
+          {{allegiance.replace('https://anapioficeandfire.com/api/houses','api/view-house')}}</a><br> <br> </span>
+                  <span ng-show="currentCharacter.character.allegiances.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Books
+                </td>
+                <td>
+                  <span ng-repeat="book in currentCharacter.character.books">#{{$index +1}}.<a ng-href="{{book.replace('https://anapioficeandfire.com/api/books','#/view-book')}}" title="View Details">
+{{book.replace('https://anapioficeandfire.com/api/books','api/view-book')}} </a><br><br> </span>
+                  <span ng-show="currentCharacter.character.books.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Pov Books
+                </td>
+                <td>
+                  <span ng-repeat="povbook in currentCharacter.character.povBooks">#{{$index +1}}.<a ng-href="{{povbook.replace('https://anapioficeandfire.com/api/houses','#/view-book')}}" title="View Details">
+          {{povbook.replace('https://anapioficeandfire.com/api/houses','api/view-book')}}</a> <br><br> </span>
+                  <span ng-show="currentCharacter.character.povBooks.length < 1 ">"Not Available"</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Tv Series
+                </td>
+                <td>
+                  <span ng-repeat="tvSer in currentCharacter.character.tvSeries">#{{$index +1}}.{{tvSer}} <br><br> </span>
+                  <span ng-show="currentCharacter.character.tvSeries.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Played By
+                </td>
+                <td>
+                  <span ng-repeat="by in currentCharacter.character.playedBy">#{{$index +1}}.{{by}} <br/> <br/><span><a ng-href="https://www.google.com/search?q={{by}}" target="_blank"><i class="fa fa-search" aria-hidden="true"></i>
+ Search {{by}} on Google For More Info.</a><br/><br/></span></span>
+                  <span ng-show="currentCharacter.character.playedBy.length < 1 ">"Not Available"</span>
+
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+
+        </div>
+        <!--  allData table end -->
+        <div>
+          <!-- col end -->
+        </div>
+        <!--  row end -->
+      </div>
+      <!-- container-fluid end -->
+</section>

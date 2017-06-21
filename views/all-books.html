@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <a class="btn btn-md btn-block" ng-click="mytoggle1=!mytoggle1"><span class="glyphicon glyphicon-filter"></span>Sort Books by Name</a>
+    </div>
+    <div class="col-md-4 ">
+      <div class="input-group btn-block has-success" style="padding: 5px;">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span> Author</span>
+        <input type="text" class="form-control inputdefault " ng-model="searchByNameX" placeholder="Enter Author Name To Search" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group btn-block has-success" style="padding: 5px;">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span> Book</span>
+        <input type="text" class="form-control inputdefault " ng-model="searchByBookName.name" placeholder="Enter Book Name To Search" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box1 effect" ng-repeat="book in all.books | orderBy: !mytoggle1? 'name':'-name' | filter:searchByNameX | filter:searchByBookName" style="cursor: pointer;" onmouseover="this.style.background='white' , this.style.color='black';" onmouseout="this.style.background='#FAC832' , this.style.color='black'">
+  <a ng-href="#/book/{{ book.url.replace('https://anapioficeandfire.com/api/books/' ,'') }}">
+    <div>
+      <p><i class="fa fa-book" aria-hidden="true"></i> #{{$index +1}}</p>
+      <h3>{{book.name}} <br>By <br> <span ng-repeat= 'author in book.authors'>{{author}}</span></h3>
+    </div>
+  </a>
+</div>

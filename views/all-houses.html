@@ -1,0 +1,28 @@
+<!-- sort buttons-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <a class="btn btn-lg btn-block" ng-click="mytoggle2=!mytoggle2"><span class="glyphicon glyphicon-filter"></span>Sort By Name</a>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group btn-block has-success" style="padding: 5px;">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span> House Name</span>
+        <input type="text" class="form-control inputdefault " ng-model="searchByNameY.name" placeholder="Enter Name To Search" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <a class="btn btn-lg btn-primary btn-block" ng-href="#/"><span class="glyphicon glyphicon-home">  </span>Homepage</a>
+    </div>
+  </div>
+</div>
+<!-- sort buttons end-->
+<div class="box2 effect" ng-repeat="house in all.houses | orderBy: !mytoggle2? 'name':'-name'  | filter:searchByNameY" onclick="location.href='#';" style="cursor: pointer;" onmouseover="this.style.background='white' , this.style.color='black';" onmouseout="this.style.background='rgb(250, 200, 50)' , this.style.color='black'">
+  <a ng-href="#/house/{{ house.url.replace('https://anapioficeandfire.com/api/houses/' ,'') }}">
+    <div>
+      <p><i class="fa fa-home" aria-hidden="true"></i> #{{$index +1}}</p>
+      <h3>{{house.name}}<span ng-show = "{{house.name.length < 1 }}" >"No Name Available"</span><br>  Region {{house.region}}  <span ng-show = "{{house.region.length < 1 }}" >"No Region Available"</span></h3>
+      <p> Coat Of Arms {{house.coatOfArms | limitTo: 200 }} <span ng-show !="{{house.coatOfArms}}">No Coat Of Arms Available</span></p>
+      <br>
+      <p>Words {{house.words}}<span ng-show="{{house.words.length < 1}}">"No House Words Available"</span></p>
+    </div>
+</div>
